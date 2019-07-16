@@ -14,14 +14,17 @@ public class BankAccount extends Account implements Transactable{
     @Override
     public void deposit(Double amountToIncreaseBy) {
         if(amountToIncreaseBy < 0 ){
-            throw new IllegalArgumentException("Can't deposit a negative amount");
+            throw new IllegalArgumentException();
         }
         balance+= amountToIncreaseBy;
     }
 
     @Override
     public void withdrawal(Double amountToDecreaseBy) {
-
+        if(amountToDecreaseBy < 0 || amountToDecreaseBy > balance){
+            throw new IllegalArgumentException();
+        }
+        balance-= amountToDecreaseBy;
     }
 
     @Override
