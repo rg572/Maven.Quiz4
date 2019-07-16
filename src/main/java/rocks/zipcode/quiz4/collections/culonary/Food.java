@@ -16,10 +16,12 @@ public class Food {
     }
 
     public <SpiceType extends Class<? extends Spice>> Map<SpiceType, Integer> getSpiceCount() {
+        for(Spice spice : spiceCount.keySet()){
+        }
         return null;
     }
 
     public void applySpice(Spice spice) {
-
+        spiceCount.merge(spice, 1, Integer::sum);
     }
 }
